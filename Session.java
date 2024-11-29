@@ -9,6 +9,7 @@ public class Session implements Serializable {
     private int endTime;
     private boolean status;
 
+    // Creates a session object with the attributes machine, startTime, endTime
     public Session(Machine machine, int startTime, int endTime) {
         this.sessionID = nextSessionID++;
         this.machine = machine;
@@ -17,10 +18,12 @@ public class Session implements Serializable {
         this.status = true;
     }
 
+    //returns start time formatted as a string
     public String getStartTime() {
         return formatTime(startTime);
     }
 
+    //returns end time formatted as a string
     public String getEndTime() {
         return formatTime(endTime);
     }
@@ -29,6 +32,7 @@ public class Session implements Serializable {
         return sessionID;
     }
 
+    //converts time to minutes and formats the result as a string
     private String formatTime(int minutes) {
         int hours = minutes / 60;
         int mins = minutes % 60;
@@ -39,15 +43,18 @@ public class Session implements Serializable {
         return machine;
     }
 
+    // returns the status of the session
     public boolean getStatus() {
         return status;
     }
 
+    //sets the status to false showing that the mark is taken and shows that the machine is being used
     public void markTaken(){
         status = false;
         machine.markUnavailable();
     }
 
+    //sets the status to true showing that the mark is free and shows that the machine is available
     public void markFree(){
         this.status = true;
         machine.markAvailable();
@@ -65,6 +72,7 @@ public class Session implements Serializable {
         System.out.println("Session ID " + sessionID + " has been canceled.");
     }
 
+    //Returns a string representation of the session
     public String toString() { 
         return "Session{" + "sessionID=" + sessionID + ", machine=" + machine + ", startTime='" + getStartTime() + '\'' + ", endTime='" + getEndTime() + '\'' + ", status=" + status + '}';
     }
