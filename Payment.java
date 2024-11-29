@@ -5,6 +5,7 @@ public class Payment {
     private Customer customer;
     private Session session;
 
+    //Initialies payment object with the attributes: paymentID, amount, status, customer, session
     public Payment(int paymentID, float amount, String status, Customer customer, Session session) {
         this.paymentID = paymentID;
         this.amount = amount;
