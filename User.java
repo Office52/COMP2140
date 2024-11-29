@@ -9,6 +9,7 @@ public abstract class User implements Serializable{
     private String password;
     private ArrayList<Notification> notifications = new ArrayList<>();
 
+    //Initializes a user object with the attributes: userID, name, email, password
     public User(int userID, String name, String email, String password) {
         this.userID = userID;
         this.name = name;
@@ -42,6 +43,7 @@ public abstract class User implements Serializable{
         System.out.println("User " + name + " logged out.");
     }
 
+    //Adds a notificatiob object to the list allowing the system to send notifications
     public void receiveNotification(Notification notification) {
         notifications.add(notification);
     }
